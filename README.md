@@ -3,46 +3,55 @@ SlimDB is a simple inplementation of JSON document database purely written in PH
 
 # Examples
 # Open Database
+```
 <?php
 	require 'SlimDB.php';
 
 	$db = new SlimDB()-open("db.slim");
 ?>
+```
 Output in db.slim
 -----------------------------------------------------------------------------------------
 {"name":"db\r\n","tables":{},"data":{}}
 
 # Create Table
+```
 <?php
 	require 'SlimDB.php';
 
 	$db = new SlimDB()-open("db.slim");
 	$db->newTable('{"name": "tblusers", "cols": ["name", "age", "gender"]}');
 ?>
+```
 Output in db.slim
 -----------------------------------------------------------------------------------------
 {"name":"db\r\n","tables":{"tblusers":["_id","name","age", "gender", "created_at","updated_at"]},"data":{"tblusers":[]}}
 
 # Drop Table
+```
 <?php
 	require 'SlimDB.php';
 
 	$db = new SlimDB()-open("db.slim");
 	$db->dropTable("tblusers");
 ?>
+```
 Output in db.slim
 -----------------------------------------------------------------------------------------
 {"name":"db\r\n","tables":{},"data":{}}
 
 # Select Table
+```
 <?php
 	require 'SlimDB.php';
 
 	$db = new SlimDB()-open("db.slim");
 	$db->setTable("`tblusers");
 ?>
+```
 
 # Insert Data
+```
 <?php
 	require 'SlimDB.php';
 
@@ -51,11 +60,13 @@ Output in db.slim
 		->setTable("`tblusers")
 		->insert('{"name": "Aminu Bakori", "age": "100", "gender": "Male"}');
 ?>
+```
 Output in db.slim
 -----------------------------------------------------------------------------------------
 {"name":"db\r\n","tables":{"tblusers":["_id","name","age", "gender", "created_at","updated_at"]},"data":{"tblusers":[{"_id": "53f934f03333340880001e9b","name": "Aminu Bakori","age": "100","gender": "Male","created_at":"2014-08-24 2:42:24","updated_at":"2014-08-24 3:22:48"}]}}
 
 # Select Data
+```
 <?php
 	require 'SlimDB.php';
 
@@ -64,6 +75,7 @@ Output in db.slim
 		->setTable("`tblusers")
 		->insert('{"name": "Aminu Bakori", "age": "100"}');
 ?>
+```
 Output in browser
 -----------------------------------------------------------------------------------------
 array (size=1)
@@ -76,6 +88,7 @@ array (size=1)
       public 'updated_at' => string '2014-08-24 3:22:48' (length=18)
 
 # Update Data
+```
 <?php
 	require 'SlimDB.php';
 
@@ -84,11 +97,13 @@ array (size=1)
 		->setTable("`tblusers")
 		->update('{"where": {"_id": "53f934f03333340880001e9b"}, "set": {"age": "200"}}');
 ?>
+```
 Output in db.slim
 -----------------------------------------------------------------------------------------
 {"name":"db\r\n","tables":{"tblusers":["_id","name","age", "gender", "created_at","updated_at"]},"data":{"tblusers":[{"_id": "53f934f03333340880001e9b","name": "Aminu Bakori","age": "200","gender": "Male","created_at":"2014-08-24 2:42:24","updated_at":"2014-08-24 3:22:48"}]}}
 
 # Delete Data
+```
 <?php
 	require 'SlimDB.php';
 
@@ -97,6 +112,7 @@ Output in db.slim
 		->setTable("`tblusers")
 		->delete('{"name": "Aminu Bakori"}');
 ?>
+```
 Output in db.slim
 -----------------------------------------------------------------------------------------
 {"name":"db\r\n","tables":{"tblusers":["_id","name","age", "gender", "created_at","updated_at"]},"data":{"tblusers":[]}}
