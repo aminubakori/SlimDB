@@ -3,7 +3,7 @@ SlimDB is a simple inplementation of JSON document database purely written in PH
 
 # Examples
 # Open Database
-```
+```php
 <?php
 	require 'SlimDB.php';
 
@@ -15,7 +15,7 @@ Output in db.slim
 {"name":"db\r\n","tables":{},"data":{}}
 
 # Create Table
-```
+```php
 <?php
 	require 'SlimDB.php';
 
@@ -28,7 +28,7 @@ Output in db.slim
 {"name":"db\r\n","tables":{"tblusers":["_id","name","age", "gender", "created_at","updated_at"]},"data":{"tblusers":[]}}
 
 # Drop Table
-```
+```php
 <?php
 	require 'SlimDB.php';
 
@@ -41,7 +41,7 @@ Output in db.slim
 {"name":"db\r\n","tables":{},"data":{}}
 
 # Select Table
-```
+```php
 <?php
 	require 'SlimDB.php';
 
@@ -51,7 +51,7 @@ Output in db.slim
 ```
 
 # Insert Data
-```
+```php
 <?php
 	require 'SlimDB.php';
 
@@ -66,7 +66,7 @@ Output in db.slim
 {"name":"db\r\n","tables":{"tblusers":["_id","name","age", "gender", "created_at","updated_at"]},"data":{"tblusers":[{"_id": "53f934f03333340880001e9b","name": "Aminu Bakori","age": "100","gender": "Male","created_at":"2014-08-24 2:42:24","updated_at":"2014-08-24 3:22:48"}]}}
 
 # Select Data
-```
+```php
 <?php
 	require 'SlimDB.php';
 
@@ -88,7 +88,7 @@ array (size=1)
       public 'updated_at' => string '2014-08-24 3:22:48' (length=18)
 
 # Update Data
-```
+```php
 <?php
 	require 'SlimDB.php';
 
@@ -103,7 +103,7 @@ Output in db.slim
 {"name":"db\r\n","tables":{"tblusers":["_id","name","age", "gender", "created_at","updated_at"]},"data":{"tblusers":[{"_id": "53f934f03333340880001e9b","name": "Aminu Bakori","age": "200","gender": "Male","created_at":"2014-08-24 2:42:24","updated_at":"2014-08-24 3:22:48"}]}}
 
 # Delete Data
-```
+```php
 <?php
 	require 'SlimDB.php';
 
