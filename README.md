@@ -7,7 +7,8 @@ SlimDB is a simple inplementation of JSON document database purely written in PH
 <?php
 	require 'SlimDB.php';
 
-	$db = new SlimDB()->open("db.slim");
+	$db = new SlimDB();
+	$db->open("db.slim");
 ?>
 ```
 Output in db.slim
@@ -19,7 +20,8 @@ Output in db.slim
 <?php
 	require 'SlimDB.php';
 
-	$db = new SlimDB()->open("db.slim");
+	$db = new SlimDB();
+	$db->open("db.slim");
 	$db->newTable('{"name": "tblusers", "cols": ["name", "age", "gender"]}');
 ?>
 ```
@@ -32,7 +34,8 @@ Output in db.slim
 <?php
 	require 'SlimDB.php';
 
-	$db = new SlimDB()->open("db.slim");
+	$db = new SlimDB();
+	$db->open("db.slim");
 	$db->dropTable("tblusers");
 ?>
 ```
@@ -45,8 +48,9 @@ Output in db.slim
 <?php
 	require 'SlimDB.php';
 
-	$db = new SlimDB()->open("db.slim");
-	$db->setTable("`tblusers");
+	$db = new SlimDB();
+	$db->open("db.slim");
+	$db->setTable("tblusers");
 ?>
 ```
 
@@ -55,9 +59,9 @@ Output in db.slim
 <?php
 	require 'SlimDB.php';
 
-	$db = new SlimDB()->open("db.slim");
-	$db
-		->setTable("`tblusers")
+	$db = new SlimDB();
+	$db->open("db.slim");
+	$db->setTable("tblusers")
 		->insert('{"name": "Aminu Bakori", "age": "100", "gender": "Male"}');
 ?>
 ```
@@ -70,10 +74,12 @@ Output in db.slim
 <?php
 	require 'SlimDB.php';
 
-	$db = new SlimDB()->open("db.slim");
-	$db
-		->setTable("`tblusers")
-		->insert('{"name": "Aminu Bakori", "age": "100"}');
+	$db = new SlimDB();
+	$db->open("db.slim");
+	$db->setTable("tblusers");
+	
+	$data = $db->select('{"name": "Aminu Bakori", "age": "100"}');
+	var_dump($data);
 ?>
 ```
 Output in browser
@@ -92,9 +98,9 @@ array (size=1)
 <?php
 	require 'SlimDB.php';
 
-	$db = new SlimDB()->open("db.slim");
-	$db
-		->setTable("`tblusers")
+	$db = new SlimDB();
+	$db->open("db.slim");
+	$db->setTable("tblusers")
 		->update('{"where": {"_id": "53f934f03333340880001e9b"}, "set": {"age": "200"}}');
 ?>
 ```
@@ -107,9 +113,9 @@ Output in db.slim
 <?php
 	require 'SlimDB.php';
 
-	$db = new SlimDB()->open("db.slim");
-	$db
-		->setTable("`tblusers")
+	$db = new SlimDB();
+	$db->open("db.slim");
+	$db->setTable("tblusers")
 		->delete('{"name": "Aminu Bakori"}');
 ?>
 ```
